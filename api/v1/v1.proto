@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mjpitz.grpc_on_kubernetes.api.v1;
+
+option go_package = "github.com/mjpitz/grpc-on-kubernetes/api/v1";
+
+message EchoRequest {
+
+}
+
+message EchoResponse {
+    string hostname = 1;
+}
+
+service Demo {
+    rpc Echo(EchoRequest) returns (EchoResponse);
+}
