@@ -13,6 +13,11 @@ import (
 	"google.golang.org/grpc"
 )
 
+// https://github.com/grpc/grpc/blob/master/doc/service_config.md
+const serviceConfig = `{
+	"loadBalancingPolicy": "round_robin"
+}`
+
 var (
 	target = ""
 
@@ -20,7 +25,9 @@ var (
 		Use:   "client",
 		Short: "Start a client process",
 		RunE: func(cmd *cobra.Command, args []string) error {
-			cc, err := grpc.Dial(target, grpc.WithInsecure())
+			cc, err := grpc.Dial(target, grpc.WithInsecure(),
+				grpc.WithDefaultServiceConfig(serviceConfig))
+
 			if err != nil {
 				return err
 			}
