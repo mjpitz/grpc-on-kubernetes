@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gok-client-headless-srv
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gok-client-headless-srv
+  template:
+    metadata:
+      labels:
+        app: gok-client-headless-srv
+    spec:
+      containers:
+        - name: gok-client
+          image: mjpitz/grpc-on-kubernetes:latest
+          imagePullPolicy: IfNotPresent
+          args:
+            - client
+            - --target
+            - dns:///gok-server-headless-srv:8080

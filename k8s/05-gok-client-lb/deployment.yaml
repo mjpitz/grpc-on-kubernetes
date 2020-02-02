@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gok-client-lb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gok-client-lb
+  template:
+    metadata:
+      labels:
+        app: gok-client-lb
+    spec:
+      containers:
+        - name: gok-client
+          image: mjpitz/grpc-on-kubernetes:latest
+          imagePullPolicy: IfNotPresent
+          args:
+            - client
+            - --target
+            - gok-server-lb:80

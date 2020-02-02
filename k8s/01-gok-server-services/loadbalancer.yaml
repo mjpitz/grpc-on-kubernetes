@@ -8,6 +8,6 @@ spec:
     - port: 80
       targetPort: 8080
       protocol: TCP
-      name: grpclb
+      name: grpc
   selector:
     app: gok-server

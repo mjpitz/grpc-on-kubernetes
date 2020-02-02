@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gok-server-headless
+  name: gok-server-headless-srv
 spec:
   clusterIP: None
   ports:
-    - port: 8080        # headless services cannot map ports
+    - port: 80
       targetPort: 8080
       protocol: TCP
       name: grpclb
+      # gprclb is a special name for srv records
   selector:
     app: gok-server
