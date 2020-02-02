@@ -17,7 +17,7 @@ var (
 	target = ""
 
 	Command = &cobra.Command{
-		Use: "client",
+		Use:   "client",
 		Short: "Start a client process",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			cc, err := grpc.Dial(target, grpc.WithInsecure())

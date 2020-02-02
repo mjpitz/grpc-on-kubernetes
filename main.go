@@ -1,10 +1,12 @@
 package main
 
 import (
+	"os"
+
 	"github.com/mjpitz/grpc-on-kubernetes/internal/client"
 	"github.com/mjpitz/grpc-on-kubernetes/internal/server"
+
 	"github.com/spf13/cobra"
-	"os"
 )
 
 func main() {

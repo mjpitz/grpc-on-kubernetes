@@ -3,17 +3,22 @@ package server
 import (
 	"context"
 	"fmt"
-	"github.com/mjpitz/grpc-on-kubernetes/api/v1"
-	"github.com/spf13/cobra"
-	"google.golang.org/grpc"
 	"log"
 	"net"
 	"os"
+
+	"github.com/mjpitz/grpc-on-kubernetes/api/v1"
+
+	"github.com/spf13/cobra"
+
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/health"
+	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 )
 
 var (
 	Command = &cobra.Command{
-		Use: "server",
+		Use:   "server",
 		Short: "Start a server process",
 		RunE: func(cmd *cobra.Command, args []string) error {
 			hostname, err := os.Hostname()
@@ -26,6 +31,8 @@ var (
 			v1.RegisterDemoServer(server, &demo{
 				hostname: hostname,
 			})
+
+			healthpb.RegisterHealthServer(server, health.NewServer())
 
 			listener, err := net.Listen("tcp", "0.0.0.0:8080")
 			if err != nil {
