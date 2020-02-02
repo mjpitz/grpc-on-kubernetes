@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gok-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gok-server
+  template:
+    metadata:
+      labels:
+        app: gok-server
+    spec:
+      containers:
+        - name: gok-server
+          image: mjpitz/grpc-on-kubernetes:latest
+          imagePullPolicy: IfNotPresent
+          args:
+            - server
+          ports:
+            - containerPort: 8080
+              name: grpc
+          livenessProbe:
+            exec:
+              command: ["/usr/bin/grpc_health_probe", "-addr=:8080"]
+            initialDelaySeconds: 5
+          readinessProbe:
+            exec:
+              command: ["/usr/bin/grpc_health_probe", "-addr=:8080"]
+            initialDelaySeconds: 5
