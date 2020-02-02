@@ -8,7 +8,6 @@ spec:
     - port: 8080
       targetPort: 8080
       protocol: TCP
-      name: grpclb
-      # gprclb is a special name for srv records
+      name: grpc
   selector:
     app: gok-server
