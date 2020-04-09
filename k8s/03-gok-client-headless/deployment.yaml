@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gok-client-headless-srv
+  name: gok-client-headless
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gok-client-headless-srv
+      app: gok-client-headless
   template:
     metadata:
       labels:
-        app: gok-client-headless-srv
+        app: gok-client-headless
     spec:
       containers:
         - name: gok-client
@@ -19,4 +19,4 @@ spec:
           args:
             - client
             - --target
-            - dns:///gok-server-headless-srv:8080
+            - dns:///gok-server-headless:8080

@@ -11,11 +11,15 @@ import (
 	"github.com/spf13/cobra"
 
 	"google.golang.org/grpc"
+	_ "google.golang.org/grpc/health"
 )
 
 // https://github.com/grpc/grpc/blob/master/doc/service_config.md
 const serviceConfig = `{
-	"loadBalancingPolicy": "round_robin"
+	"loadBalancingPolicy": "round_robin",
+	"healthCheckConfig": {
+		"serviceName": ""
+	}
 }`
 
 var (
