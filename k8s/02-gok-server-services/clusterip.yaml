@@ -1,9 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gok-server-lb
+  namespace: grpc
+  name: gok-server-clusterip
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 8080

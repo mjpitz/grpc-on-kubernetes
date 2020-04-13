@@ -1,16 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gok-client-lb
+  namespace: grpc
+  name: gok-client-clusterip
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: gok-client-lb
+      app: gok-client-clusterip
   template:
     metadata:
       labels:
-        app: gok-client-lb
+        app: gok-client-clusterip
     spec:
       containers:
         - name: gok-client
@@ -19,4 +20,4 @@ spec:
           args:
             - client
             - --target
-            - gok-server-lb:80
+            - gok-server-clusterip:80
