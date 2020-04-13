@@ -34,11 +34,13 @@
 1. Kubernetes Services
    1. [Code Reference](k8s/02-gok-server-services)
    1. ClusterIP
+   1. NodePort
+   1. LoadBalancer
    1. Headless
       1. A Records
       1. SRV Records
-   1. NodePort
-   1. LoadBalancer
+   1. ExternalName
+      1. CNAME records
    1. Resources
       * [Application Services](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/)
       * [Headless Services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services)
@@ -46,7 +48,7 @@
 1. gRPC Targets
    1. `[resolver]://[resolver-address:resolver-port]/[service-name][:service-port]`
    1. Resources
-      * [Naming](https://github.com/grpc/grpc/blob/master/doc/naming.md)
+      * [gRPC Name Resolution](https://github.com/grpc/grpc/blob/master/doc/naming.md)
       * [grpc-go DNS](https://github.com/grpc/grpc-go/blob/master/internal/resolver/dns/dns_resolver.go)
 1. Clients in action
    1. cluster-ip client

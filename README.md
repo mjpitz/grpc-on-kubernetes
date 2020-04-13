@@ -4,3 +4,27 @@ This repository contains materials that I plan on using for my 2020 conference p
 The goal of the talk is to demonstrate how to run gRPC clients and servers on Kubernetes.
 We will walk through a variety of deployment configurations.
 Each will demonstrate both simple and complex use cases.
+
+## Pre-presentation set up
+
+* Kubernetes Cluster
+  * Support for DNS
+  * Support for a load balancer (optional)
+
+## Using a kind server
+
+```bash
+$ KUBECONFIG=~/.kube/grpc.yaml kind create cluster
+$ kubectl config use-context kind-kind
+$ kubectl apply -f k8s/00-init/
+$ kubectl config set-context kind-kind --namespace grpc
+```
+
+Once the context is configured, you can apply the configuration used for the demonstration.
+
+```bash
+$ kubectl apply -f k8s/01-gok-server-deployment/
+$ kubectl apply -f k8s/02-gok-server-services/
+$ kubectl apply -f k8s/03-gok-client-clusterip/
+$ kubectl apply -f k8s/04-gok-client-headless/
+```
