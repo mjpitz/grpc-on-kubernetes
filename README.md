@@ -28,3 +28,9 @@ $ kubectl apply -f k8s/02-gok-server-services/
 $ kubectl apply -f k8s/03-gok-client-clusterip/
 $ kubectl apply -f k8s/04-gok-client-headless/
 ```
+
+## Connect with me
+
+* [Twitter](https://twitter.com/_mjpitz_)
+* [GitHub](https://github.com/mjpitz)
+* [LinkedIn](https://www.linkedin.com/in/mjpitz/)
