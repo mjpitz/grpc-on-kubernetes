@@ -32,7 +32,17 @@ var (
 				hostname: hostname,
 			})
 
-			healthpb.RegisterHealthServer(server, health.NewServer())
+			// For a more complete example on how to use the health server, see the example.
+			// https://github.com/grpc/grpc-go/tree/master/examples/features/health
+			healthCheck := health.NewServer()
+			healthpb.RegisterHealthServer(server, healthCheck)
+
+			go func() {
+				// inspect dependencies and toggle service status appropriately
+				// you can toggle the global system health, e.g. ""
+				// or you could toggle a specific services health, e.g. "svc1"
+				healthCheck.SetServingStatus("", healthpb.HealthCheckResponse_SERVING)
+			}()
 
 			listener, err := net.Listen("tcp", "0.0.0.0:8080")
 			if err != nil {

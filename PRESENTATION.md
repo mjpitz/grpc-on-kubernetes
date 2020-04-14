@@ -10,6 +10,11 @@
   * Right
     * IntelliJ
 
+## Key principals to keep in mind
+
+1. The features being demonstrated today should be available in most languages.
+1. While this example is written in Go, many languages implement the features in a similar way.
+
 ## Outline
 
 1. API Definition
