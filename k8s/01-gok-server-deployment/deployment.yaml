@@ -4,7 +4,11 @@ metadata:
   namespace: grpc
   name: gok-server
 spec:
-  replicas: 3
+  ## Desired number of pods.
+  ##
+  ## https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+  replicas: 1
+
   selector:
     matchLabels:
       app: gok-server
@@ -22,10 +26,20 @@ spec:
           ports:
             - containerPort: 8080
               name: grpc
+
+          ## Used to detect when an application degrades to broken states and
+          ## cannot recover except by being restarted.
+          ##
+          ## https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-a-liveness-command
           livenessProbe:
             exec:
               command: ["/usr/bin/grpc_health_probe", "-addr=:8080"]
             initialDelaySeconds: 5
+
+          ## Used to detect when an application is no longer able to service
+          ## traffic.
+          ##
+          ## https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
           readinessProbe:
             exec:
               command: ["/usr/bin/grpc_health_probe", "-addr=:8080"]
