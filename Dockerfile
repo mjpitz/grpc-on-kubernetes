@@ -20,13 +20,26 @@ RUN go build -a \
   -o /go/bin/gok \
   .
 
+##########
+## IGNORE EVERYTHING BEFORE THIS (primarily build pack type stuff)
+## The snippet below is the contents of the actually running container
+
 FROM scratch
 
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 
+## grpc_health_probe is a community developed command line tool that
+## introspects the health of a gRPC server. This tool is primarily used
+## within the Kubernetes ecosystem for monitoring a servers liveness
+## and readiness using exec probes.
+## https://github.com/grpc-ecosystem/grpc-health-probe
 COPY --from=builder /go/bin/grpc_health_probe /usr/bin/grpc_health_probe
+
+## gok is the binary that was compiled from the source code in this
+## repository. Used as the primary entrypoint.
 COPY --from=builder /go/bin/gok /usr/bin/gok
 
+# Specify the run as user/group to be non-root.
 USER 10001:10001
 
 ENTRYPOINT [ "/usr/bin/gok" ]
