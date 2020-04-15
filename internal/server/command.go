@@ -28,10 +28,13 @@ var (
 
 			server := grpc.NewServer()
 
-			v1.RegisterDemoServer(server, &demo{
-				hostname: hostname,
-			})
+			// Register any desired application server with the grpc server
+			v1.RegisterDemoServer(server, &demo{ hostname })
 
+			// gRPC provides some default services out of box.
+			// This includes a reflection and health service.
+			// The health server can be used by clients to inspect a backends health.
+			// This is often done as part of load balancing before sending requests to a potentially unhealthy backend.
 			// For a more complete example on how to use the health server, see the example.
 			// https://github.com/grpc/grpc-go/tree/master/examples/features/health
 			healthCheck := health.NewServer()
@@ -58,6 +61,11 @@ var (
 		},
 	}
 )
+
+// demo implements the code-generated DemoServer interface.
+// With this, we are able to register the demo server implementation
+// with the gRPC server.
+// See api/v1/v1.pb.go for DemoServer interface
 
 type demo struct {
 	hostname string
