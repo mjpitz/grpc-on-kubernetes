@@ -9,6 +9,7 @@ These are often paired with an ingress controller to support HTTP routing.
 readonly gok_server_ip=$(kubectl get svc gok-server-lb -o json | jq -r .status.loadBalancer.ingress[0].ip)
 cat k8s/05-gok-client-lb/deployment.yaml | sed "s:gok-server-lb:${gok_server_ip}:g" | kubectl apply -f -
 kubectl logs -f -l app=gok-client-lb
+kubectl delete pod $(kubectl logs --tail 1 -l app=gok-client-lb | awk '{print $6}')
 ```
 
 * Sticky server behavior comes from kube-proxy being configured with iptables
