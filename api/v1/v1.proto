@@ -1,8 +1,13 @@
+// See protocol-buffers documentation for file syntax
+// https://developers.google.com/protocol-buffers/docs/overview
+
 syntax = "proto3";
 
 package mjpitz.grpc_on_kubernetes.api.v1;
 
 option go_package = "github.com/mjpitz/grpc-on-kubernetes/api/v1";
+
+// Messages are used to model your request and response payloads.
 
 message EchoRequest {
 
@@ -12,6 +17,15 @@ message EchoResponse {
     string hostname = 1;
 }
 
+// Services are used to model operations that can be performed against a service.
+
 service Demo {
     rpc Echo(EchoRequest) returns (EchoResponse);
+
+    // gRPC supports both unary calls (as seen with Echo) and streaming calls.
+    // https://grpc.io/docs/guides/concepts/
+    //
+    // rpc EchoServerStream(EchoRequest) returns (stream EchoResponse);
+    // rpc EchoClientStream(stream EchoRequest) returns (EchoResponse);
+    // rpc EchoBidiStream(stream EchoRequest) returns (stream EchoResponse);
 }
