@@ -45,6 +45,8 @@
    1. [Code Reference](Dockerfile)
    1. Resources
       * [grpc-health-probe](https://github.com/grpc-ecosystem/grpc-health-probe)   
+1. Namespaces
+   1. [Code Reference](k8s/00-init/README.md)
 1. Kubernetes Deployment
    1. [Code Reference](k8s/01-gok-server-deployment/README.md)
 1. Kubernetes Services
