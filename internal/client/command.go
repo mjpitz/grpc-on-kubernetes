@@ -34,6 +34,19 @@ const serviceConfig = `{
 }`
 
 var (
+	// A target is a fully qualified URI used to resolve backend addresses for a service.
+	// The structure of a URI is as such:
+	//
+	//     [resolver]://[resolver-address:resolver-port]/[service-name][:service-port]
+	//
+	// Examples include:
+	//
+	//      dns:///my-service.my-namespace:8080
+	//      consul://localhost:8500/my-service.my-namespace:8080
+	//
+	// For more information on gRPC name resolution and valid targets, see their naming docs.
+	// https://github.com/grpc/grpc/blob/master/doc/naming.md
+
 	target = ""
 
 	Command = &cobra.Command{
