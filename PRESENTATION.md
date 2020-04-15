@@ -3,9 +3,9 @@
 * Cluster
   * Digital Ocean Managed Kubernetes
   * Modern version of Kubernetes
-* Laptop
+* Laptop (MacBook Air)
   * Left
-    * Terminal
+    * Terminal (tmux)
     * Chrome
   * Right
     * IntelliJ
