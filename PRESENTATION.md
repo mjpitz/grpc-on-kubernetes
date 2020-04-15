@@ -2,7 +2,8 @@
 
 * Cluster
   * Digital Ocean Managed Kubernetes
-  * Modern version of Kubernetes
+    * Single node (4cpu, 8GB RAM)
+  * Modern version of Kubernetes (1.16)
 * Laptop (MacBook Air)
   * Left
     * Terminal (tmux)
