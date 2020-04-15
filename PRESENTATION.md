@@ -1,3 +1,7 @@
+## Slide Deck
+
+[Google Drive](https://docs.google.com/presentation/d/1HQmeGmQPoHz_edmiDUFCSFZJ54HV1eB6dJL1iud6wCU/edit?usp=sharing)
+
 ## Setup
 
 * Cluster
