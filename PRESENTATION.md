@@ -46,13 +46,13 @@
    1. Resources
       * [grpc-health-probe](https://github.com/grpc-ecosystem/grpc-health-probe)   
 1. Kubernetes Deployment
-   1. [Code Reference](k8s/01-gok-server-deployment)
+   1. [Code Reference](k8s/01-gok-server-deployment/README.md)
 1. Kubernetes Services
-   1. [Code Reference](k8s/02-gok-server-services)
+   1. [Code Reference](k8s/02-gok-server-services/README.md)
 1. Clients in action
    1. cluster-ip
-      * [Code Reference](k8s/03-gok-client-clusterip)
+      * [Code Reference](k8s/03-gok-client-clusterip/README.md)
    1. headless
-      * [Code Reference](k8s/04-gok-client-headless)
+      * [Code Reference](k8s/04-gok-client-headless/README.md)
    1. load balancer
-      * [Code Reference](k8s/05-gok-client-lb)
+      * [Code Reference](k8s/05-gok-client-lb/README.md)

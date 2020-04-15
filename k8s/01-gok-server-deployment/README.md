@@ -2,6 +2,11 @@
 
 Kubernetes workloads come in many different shapes and forms.
 
+* [Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod/)
+  * They are the smallest unit of execution, encompassing a collection of containers.
+  * Often not used directly.
+* [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/)
+  * Used to run scheduled, batch style workloads.
 * [StatefulSets](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
   * Used to manage stateful workloads with backing persistent data.
   * Examples: MySQL, ZooKeeper, Redis, etc

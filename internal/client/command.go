@@ -20,11 +20,11 @@ import (
 // used by all clients.
 // https://github.com/grpc/grpc/blob/master/doc/service_config.md
 
+// By default, loadBalancingPolicy uses a "pick_first" strategy.
+
 // This includes a healthCheckConfig that enables transparently inspecting
 // upstream backend instances before routing requests to them.
 // https://github.com/grpc/grpc-go/tree/master/examples/features/health
-
-// By default, loadBalancingPolicy uses a "pick_first" strategy.
 
 const serviceConfig = `{
 	"loadBalancingPolicy": "round_robin",

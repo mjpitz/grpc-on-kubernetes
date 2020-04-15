@@ -5,4 +5,6 @@ It provides a logical resource container that we can provide resource quotas, ne
 
 ```bash
 kubectl apply -f k8s/00-init/
+kubectl config set-context $(kubectl config current-context) --namespace grpc
+watch kubectl get pods,svc
 ```

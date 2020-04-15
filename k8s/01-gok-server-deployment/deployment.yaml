@@ -5,7 +5,6 @@ metadata:
   name: gok-server
 spec:
   ## Desired number of pods.
-  ##
   ## https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
   replicas: 1
 
