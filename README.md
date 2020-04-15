@@ -5,12 +5,6 @@ The goal of the talk is to demonstrate how to run gRPC clients and servers on Ku
 We will walk through a variety of deployment configurations.
 Each will demonstrate both simple and complex use cases.
 
-## Pre-presentation set up
-
-* Kubernetes Cluster
-  * Support for DNS
-  * Support for a load balancer (optional)
-
 ## Using a kind server
 
 ```bash
@@ -28,6 +22,11 @@ $ kubectl apply -f k8s/02-gok-server-services/
 $ kubectl apply -f k8s/03-gok-client-clusterip/
 $ kubectl apply -f k8s/04-gok-client-headless/
 ```
+
+## Presentation Outline
+
+* See [PRESENTATION.md](PRESENTATION.md) for a complete overview of the presentation.
+* See [present.sh](present.sh) for all shell commands that are used during this project.
 
 ## Connect with me
 
