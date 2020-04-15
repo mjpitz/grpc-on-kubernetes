@@ -14,3 +14,7 @@ kubectl apply -f k8s/03-gok-client-clusterip/
 kubectl logs -f -l app=gok-client-clusterip
 kubectl delete pod $(kubectl logs --tail 1 -l app=gok-client-clusterip | awk '{print $6}')
 ```
+
+* Sticky server behavior comes from kube-proxy being configured with iptables
+  * This can be configured to use ipvs for load balancing support 
+  * For more details on this, see this [blog post](https://kubernetes.io/blog/2018/07/09/ipvs-based-in-cluster-load-balancing-deep-dive/) 

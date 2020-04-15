@@ -5,6 +5,7 @@
 ##   2. client logs
 ##   3. apply / delete / etc
 
+kubectl config set-context $(kubectl config current-context) --namespace grpc
 watch kubectl get pods,svc
 
 ## Apply init and briefly describe namespaces.
