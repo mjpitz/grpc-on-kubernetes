@@ -1,5 +1,5 @@
 # grpc-on-kubernetes
-![Google Analytics](https://www.google-analytics.com/collect?v=1&tid=UA-172921913-1&cid=555&t=event&ec=repo&ea=open&dp=grpc-on-kubernetes&dt=grpc-on-kubernetes)
+![Google Analytics](https://www.google-analytics.com/collect?v=1&tid=UA-172921913-1&cid=555&t=pageview&ec=repo&ea=open&dp=grpc-on-kubernetes&dt=grpc-on-kubernetes)
 
 This repository contains materials that I plan on using for my 2020 conference presentations.
 The goal of the talk is to demonstrate how to run gRPC clients and servers on Kubernetes.
